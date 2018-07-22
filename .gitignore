@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# JetBrains
+.idea/
+.idea_modules/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride

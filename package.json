@@ -1,0 +1,23 @@
+{
+  "name": "accounting-notebook",
+  "version": "1.0.0",
+  "description": "Accounting notebook",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rommxx/accounting-notebook.git"
+  },
+  "author": "rommxx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rommxx/accounting-notebook/issues"
+  },
+  "homepage": "https://github.com/rommxx/accounting-notebook#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
