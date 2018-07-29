@@ -1,32 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const NodeCache = require( "node-cache" );
-const storage = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
-
-const transactions = [];
+const transactionStorage = require('../../models/transactions/storage');
+const storage = new transactionStorage();
 
 router.get('/', (req, res) => {
-    res.send(transactions);
+    res.send(storage.getTransactions());
 });
 
 router.post('/', (req, res) => {
-
-    const id = transactions.length + 1;
-    const transaction = {
+    const params = {
         type: req.body.type,
         amount: req.body.amount
     };
 
-    transactions.push(transaction);
+    const { error } = storage.validateParams(params);
+    if (error) return res.status(400).json({"message" : "Validation failed."});
 
-    storage.set(id, transaction, function(err, success){
-        if(!err && success){
-            console.log(success);
-            res.send(transaction);
-        } else {
-            res.status(400).send(err);
-        }
-    });
+    const result = storage.addTransaction(params);
+
+    if (result.status === 'Rejected') {
+        return res.status(422).json({"message" : "Unprocessable Entity. Transaction rejected due to possible negative balance."});
+    }
+
+    res.send(result);
 });
 
 module.exports = router;
