@@ -2,7 +2,7 @@ const dummyjson = require('dummy-json');
 
 const typeMock = {
     type: function() {
-        return dummyjson.utils.random() > 0.5 ? 'credit' : 'debit';
+        return dummyjson.utils.randomArrayItem(['credit', 'debit']);
     }
 };
 
@@ -22,6 +22,15 @@ const transactionsTemplate = `
 const transactionsJSON = dummyjson.parse(transactionsTemplate, {helpers: typeMock});
 const transactions = JSON.parse(transactionsJSON);
 
+const acceptedTransaction = {
+    "id": "2422a742-ace4-414b-9fe0-8b611e2d0338",
+    "type": "credit",
+    "amount": 25,
+    "effectiveDate": "2018-07-30 09:15:14",
+    "status": "accepted"
+};
+
 module.exports = {
-    transactions
+    transactions,
+    acceptedTransaction
 };
