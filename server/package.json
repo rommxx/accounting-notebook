@@ -9,15 +9,20 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
   "devDependencies": {
+    "body-parser": "^1.18.3",
     "chai": "4.1.2",
     "chai-http": "4.0.0",
+    "cors": "^2.8.4",
     "cross-env": "5.2.0",
     "dummy-json": "2.0.0",
     "eslint": "5.0.1",
     "express": "4.16.3",
     "mocha": "5.2.0",
+    "moment": "^2.22.2",
     "prettier": "1.13.7"
   }
 }
