@@ -1,7 +1,7 @@
 # accounting-notebook
-Accounting notebook.
 
 The App for the receiving receive credit and debit financial transactions.
+
 The App has a simple interface and you can see the transaction history.
 
 Any transaction, which leads to negative amount within the system will be refused with 422 response code.
@@ -9,13 +9,13 @@ Any transaction, which leads to negative amount within the system will be refuse
 ## Installation
 
 ```bash
-$ yarn
+$ yarn install:all
 ```
 
- or
+## Run app
 
 ```bash
-$ npm install
+$ yarn start
 ```
 
 ## Tests
@@ -28,11 +28,11 @@ $ yarn test
 
 GET /api/transactions
 
-   Sample response:
+   Response example:
    ```
    [
-       {
-           "id": "2422a742-ace4-414b-9fe0-8b611e2d0338",
+    {
+        "id": "2422a742-ace4-414b-9fe0-8b611e2d0338",
             "type": "credit",
             "amount": 25,
             "effectiveDate": "2018-07-30 09:15:14",
@@ -44,7 +44,7 @@ GET /api/transactions
             "amount": 50,
             "effectiveDate": "2018-07-30 09:16:38",
             "status": "rejected"
-        }
+    }
    ]
    ```
  
@@ -57,7 +57,7 @@ POST  /api/transaction
     "amount": Number
   }
   ```
-  Sample response:
+  Response example:
   ```
   {
        "id": "2422a742-ace4-414b-9fe0-8b611e2d0338",

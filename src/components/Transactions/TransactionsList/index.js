@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Transaction from '../Transaction';
 import TransactionsHeader from '../TransactionsHeader';
 import { withStyles } from '@material-ui/core/styles';
+import Styles from './styles.m.css';
 
 const styles = theme => ({
     root: {
@@ -66,7 +67,10 @@ class TransactionsList extends Component {
         const { expanded, transactions } = this.state;
         const { classes } = this.props;
 
-        const transactionsJSX = transactions.map((transaction) => (
+
+        const transactionsJSX = (!transactions.length) ?
+            <div className={Styles.emptylist}>Transactions list empty</div>
+            : ( transactions.map((transaction) => (
             <Transaction
                 id = { transaction.id }
                 key = { transaction.id }
@@ -78,7 +82,7 @@ class TransactionsList extends Component {
                 handleChange = {this.handleChange}
                 classes = {classes}
             />
-        ));
+        )));
 
         return (
             <div>
