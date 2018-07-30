@@ -13,16 +13,21 @@ router.post('/', (req, res) => {
         amount: req.body.amount
     };
 
-    const { error } = storage.validateParams(params);
-    if (error) return res.status(400).json({"message" : "Validation failed."});
-
+    storage.validateParams(params);
     const result = storage.addTransaction(params);
 
-    if (result.status === 'Rejected') {
-        return res.status(422).json({"message" : "Unprocessable Entity. Transaction rejected due to possible negative balance."});
+    if (result.status === 'rejected') {
+        const msg = "Unprocessable Entity. Transaction rejected due to potential negative balance.";
+        return res.status(422).json(prepareResponse(msg));
     }
 
     res.send(result);
 });
+
+const prepareResponse = (msg) => {
+    return  {
+        'message' : msg
+    };
+};
 
 module.exports = router;
