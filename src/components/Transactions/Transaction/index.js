@@ -22,10 +22,12 @@ export default class Transaction extends Component {
     };
 
     render () {
-        const { expanded, id, classes, type, amount, date } = this.props;
+        const { expanded, id, classes, type, amount, date, status } = this.props;
+
+        const panelClass = (type === 'credit' ? 'greenPanel' : 'redPanel');
 
         return (
-            <ExpansionPanel expanded={expanded === id} onChange={this._handleChange}>
+            <ExpansionPanel expanded={expanded === id} onChange={this._handleChange} className={classes[panelClass]}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography className={classes.heading}>{date}</Typography>
                     <Typography className={classes.heading}>{type}</Typography>
@@ -33,7 +35,8 @@ export default class Transaction extends Component {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        <span>Transaction Uuid: {id}</span>
+                        <span className={classes.details}>Transaction Uuid: {id}</span>
+                        <span className={classes.details}>Transaction Status: {status}</span>
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>

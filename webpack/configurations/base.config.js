@@ -11,7 +11,7 @@ export const generateCommonConfiguration = () => {
     const REPOSITORY_NAME = process.env.REPOSITORY_NAME;
 
     return {
-        entry:  source,
+        entry:  ['@babel/polyfill', source],
         output: {
             path:       build,
             publicPath: '/',

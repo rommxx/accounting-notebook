@@ -16,6 +16,15 @@ const styles = theme => ({
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
+    details: {
+        display: 'block'
+    },
+    greenPanel: {
+        background: '#d8e8d8'
+    },
+    redPanel: {
+        background: '#f7dcdb'
+    }
 });
 
 class TransactionsList extends Component {
@@ -38,7 +47,7 @@ class TransactionsList extends Component {
     _fetchTransactions = async () => {
 
         try {
-            const response = await fetch('http://localhost:7001/api/transactions', {
+            const response = await fetch('http://localhost:7000/api/transactions', {
                 method:  'GET'
             });
 
@@ -65,6 +74,7 @@ class TransactionsList extends Component {
                 type = {transaction.type}
                 date = {transaction.effectiveDate}
                 amount = {transaction.amount}
+                status = {transaction.status}
                 handleChange = {this.handleChange}
                 classes = {classes}
             />

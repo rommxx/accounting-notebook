@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/rommxx/accounting-notebook/issues"
   },
-  "proxy": "http://localhost:7001",
+  "proxy": "http://localhost:7000",
   "homepage": "https://github.com/rommxx/accounting-notebook#readme",
   "dependencies": {
     "classnames": "^2.2.6",

@@ -4,12 +4,9 @@ import Styles from './styles.m.css';
 export default class Header extends Component {
     render () {
         return (
-            <div className = { Styles.header }>
-                <div className = { Styles.layout }>
-                    <div>
-                        <h3>Accounting notebook</h3>
-                    </div>
-                </div>
+            <div className={Styles.header}>
+                <h1 className={Styles.title}>Accounting notebook</h1>
+                <h2 className={Styles.subtitle}>Transactions History</h2>
             </div>
         );
     }

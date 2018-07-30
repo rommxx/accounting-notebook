@@ -60,7 +60,6 @@ class Storage {
 
         this.balance += (type === Type.credit) ? amount : (-1 * amount);
 
-        console.log("UPDATED BALANCE", this.balance);
         return this;
     }
 }
