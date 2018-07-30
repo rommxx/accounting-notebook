@@ -1,5 +1,10 @@
 # accounting-notebook
-Accounting notebook
+Accounting notebook.
+
+The App for the receiving receive credit and debit financial transactions.
+The App has a simple interface and you can see the transaction history.
+
+Any transaction, which leads to negative amount within the system will be refused with 422 response code.
 
 ## Installation
 
@@ -44,6 +49,7 @@ GET /api/transactions
    ```
  
 POST  /api/transaction
+
   Request format:
   ```
   {
