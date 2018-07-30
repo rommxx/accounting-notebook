@@ -21,7 +21,7 @@ $ npm install
 ## Tests
 
 ```bash
-$ cd server && yarn test
+$ yarn test
 ```
 
 ### Usage
